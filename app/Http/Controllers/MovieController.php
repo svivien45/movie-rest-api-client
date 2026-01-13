@@ -21,11 +21,11 @@ class MovieController extends Controller
             return back()->with('error', $message);
         }
 
-        $data = $response->json(); // Ez tartalmazza a "movies" kulcsot
-        $movies = $data['movies'] ?? []; // Kivesszük a tömböt
+        $data = $response->json(); 
+        $movies = $data['movies'] ?? [];
 
         return Inertia::render('Movies/Index', [
-            'movies' => $movies, // most már csak a tömb megy a React komponensnek
+            'movies' => $movies, 
             'isAuthenticated' => $this->isAuthenticated()
         ]);
 
